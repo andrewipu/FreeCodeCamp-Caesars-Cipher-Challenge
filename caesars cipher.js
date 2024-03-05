@@ -17,9 +17,9 @@ function rot13(str) {
 		21 : 'U', 22 : 'V', 23 : 'W', 24 : 'X', 25 : 'Y'
     };
 
-    //let infStr = [];
-    //let decString = [];
-    let decipher = '';
+    let infStr = [];
+    let decString = [];
+    //let decipher = '';
     for (const letter of str) {
         if (letter != ' ') {
             //console.log(letter);
@@ -27,18 +27,20 @@ function rot13(str) {
             let infIndex = (alphIndex[letter] - 13 + 26) % 26;
             //console.log(infIndex);
             
-            //infStr.push(alphShift[infIndex]);
-            decipher = decipher + alphShift[infIndex];
+            infStr.push(alphShift[infIndex]);
+            //decipher = decipher + alphShift[infIndex];
 
-            console.log(decipher);
+            //console.log(decipher);
         } else {
-            decipher += ' '
+            //decipher += ' '
+            infStr.push(' ');
         }
     }
 
-    //console.log(infStr);
-    //decString = infStr.join('');
-    //console.log(decString);
+    console.log(infStr);
+    decString = infStr.join('');
+    console.log(decString);
+    return decString;
 
   }
   

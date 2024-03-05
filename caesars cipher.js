@@ -19,29 +19,39 @@ function rot13(str) {
 
     let infStr = [];
     let decString = [];
+    let puncTest = /[[:punct:]]/;
+    let alphOnly = /[A-Z]/;
     //let decipher = '';
     for (const letter of str) {
-        if (letter != ' ') {
-            //console.log(letter);
-            //console.log(alphIndex[letter]);
+        if(letter == alphOnly.test) {
+            console.log(letter);
+        //if (letter != ' ') {
+            console.log(letter);
+            console.log(alphIndex[letter]);
             let infIndex = (alphIndex[letter] - 13 + 26) % 26;
             //console.log(infIndex);
             
             infStr.push(alphShift[infIndex]);
-            //decipher = decipher + alphShift[infIndex];
-
-            //console.log(decipher);
-        } else {
+            
+        } 
+        
+        //else if (letter == ' ') {
             //decipher += ' '
-            infStr.push(' ');
-        }
+          //  infStr.push(' ');
+        //}
+
+        //else if (letter == puncTest ) {
+          //  infStr.push(puncTest);
+        //}
     }
 
+    //}
+    /*
     console.log(infStr);
     decString = infStr.join('');
     console.log(decString);
-    return decString;
+    return decString;*/
 
   }
   
-  rot13("SERR PBQR");
+  rot13("SERR");

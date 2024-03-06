@@ -17,41 +17,28 @@ function rot13(str) {
 		21 : 'U', 22 : 'V', 23 : 'W', 24 : 'X', 25 : 'Y'
     };
 
+    //inferred string
     let infStr = [];
+
+    //decoded string
     let decString = [];
-    let puncTest = /[[:punct:]]/;
-    let alphOnly = /[A-Z]/;
-    //let decipher = '';
+
+    //iterate over every letter of str
     for (const letter of str) {
-        if(letter == alphOnly.test) {
-            console.log(letter);
-        //if (letter != ' ') {
-            console.log(letter);
-            console.log(alphIndex[letter]);
+        //assert that the string consists of an uppercase letter
+        if (/^[A-Z]$/.test(letter)) {
+            //caclulate the decoded index
             let infIndex = (alphIndex[letter] - 13 + 26) % 26;
-            //console.log(infIndex);
-            
             infStr.push(alphShift[infIndex]);
-            
-        } 
-        
-        //else if (letter == ' ') {
-            //decipher += ' '
-          //  infStr.push(' ');
-        //}
 
-        //else if (letter == puncTest ) {
-          //  infStr.push(puncTest);
-        //}
+        //if letter is anything but an uppercase letter...    
+        } else {
+          infStr.push(letter);
+        }
     }
-
-    //}
-    /*
-    console.log(infStr);
+    //join the letters into a string
     decString = infStr.join('');
-    console.log(decString);
-    return decString;*/
-
+    return decString;
   }
   
-  rot13("SERR");
+  rot13("SERR CVMMN!");
